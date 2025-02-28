@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      username: lakutina
+      port: 27017
+      password: 5364
+      database: books
+      authentication-database: admin
+
+server:
+  port: 8091
