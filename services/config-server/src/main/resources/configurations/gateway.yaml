@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: book-service
+          uri: lb:http://BOOK-SERVICE
+          predicates:
+            - Path=/api/v1/books/**
+      globalcors:
+        cors-configurations:
+          '[/**]': # Applies to all paths
+            allowedOrigins:
+              - "http://localhost:3000"
+            allowedMethods: GET, POST, PUT, DELETE, OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+  application:
+    name: gateway
+server:
+  port: 8899

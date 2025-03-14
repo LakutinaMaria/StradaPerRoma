@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://lakutina:5364@localhost:27017/books?authSource=admin
+#      host: localhost
+#      username: lakutina
+#      port: 27017
+#      password: 5364
+#      database: books
+#      authentication-database: admin
+
+server:
+  port: 8091

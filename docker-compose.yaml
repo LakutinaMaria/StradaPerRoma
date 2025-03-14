@@ -94,6 +94,26 @@ services:
       - 1080:1080
       - 1025:1025
 
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: keycloak
+    command: start-dev
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_DB=postgres
+      - KC_DB_URL_HOST=ms_pg_sql
+      - KC_DB_URL_DATABASE=keycloak
+      - KC_DB_USERNAME=lakutina
+      - KC_DB_PASSWORD=5364
+    ports:
+      - "8180:8180"
+    networks:
+      - microservices-net  # Ensure Keycloak is on the same network
+    depends_on:
+      - postgresql
+
+
 networks:
   microservices-net:
     driver: bridge
@@ -102,3 +122,4 @@ volumes:
   postgres:
   pgadmin:
   mongo:
+  postgres_data:
