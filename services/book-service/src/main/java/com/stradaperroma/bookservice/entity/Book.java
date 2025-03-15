@@ -1,26 +1,29 @@
 package com.stradaperroma.bookservice.entity;
 
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.UUID;
 
 
-@Document
-@AllArgsConstructor
+@Entity
 @Data
 public class Book {
 
+
     @Id
-    private String id;
+    @GeneratedValue
+    private UUID id;
     private String title;
     private String author;
     private String coverUrl;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
+    @Column(name = "level", columnDefinition = "book_level")
     private BookLevel level;
+    @OneToMany
     private List<Page> pages;
     private Integer pageSize;
+
 
 }

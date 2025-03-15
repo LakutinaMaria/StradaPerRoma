@@ -5,19 +5,17 @@ import com.stradaperroma.bookservice.dto.PageDTO;
 import jakarta.validation.Valid;
 
 import java.util.List;
+import java.util.UUID;
 
 
 public interface BookService {
 
     List<BookDTO> getAllBooks();
 
-    String create(BookDTO book);
+    UUID create(BookDTO book);
 
-    String createPage(@Valid PageDTO pageDTO);
+    UUID createPage(@Valid PageDTO pageDTO);
 
-    PageDTO getCurrentPage(String bookId, String userId);
+    PageDTO getPage(UUID bookId, Integer cursor);
 
-    PageDTO getNextPage(String bookId, String userId);
-
-    PageDTO getPreviousPage(String bookId, String userId);
 }

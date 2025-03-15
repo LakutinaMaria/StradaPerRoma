@@ -2,9 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/services/account-service" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/services/book-service" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/services/discovery" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/services/gateway" vcs="Git" />
+  </component>
+  <component name="VcsProjectSettings">
+    <option name="detectVcsMappingsAutomatically" value="false" />
   </component>
 </project>

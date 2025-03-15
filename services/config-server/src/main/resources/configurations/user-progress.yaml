@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/books
+    url: jdbc:postgresql://localhost:5432/userprogress
     username: postgres
     password: 5364
     driver-class-name: org.postgresql.Driver
@@ -10,4 +10,4 @@ spring:
       ddl-auto: update
 
 server:
-  port: 8091
+  port: 8092

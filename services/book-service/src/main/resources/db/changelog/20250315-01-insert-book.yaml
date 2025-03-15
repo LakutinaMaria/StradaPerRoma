@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-book-data-1
+      author: lakut
+      changes:
+        - insert:
+            tableName: book
+            schemaName: public
+            columns:
+              - column:
+                  name: id
+                  value: 3e329b21-dd19-4ce9-892a-091c47762580
+                  type: UUID
+              - column:
+                  name: title
+                  value: Cipollino
+              - column:
+                  name: author
+                  value: Gianni Rodari
+              - column:
+                  name: cover_url
+                  value: https://storage.yandexcloud.net/book-covers/cipollino.jpg
+              - column:
+                  name: level
+                  value: Beginner
+              - column:
+                  name: page_size
+                  value: 25
+                  type: INT

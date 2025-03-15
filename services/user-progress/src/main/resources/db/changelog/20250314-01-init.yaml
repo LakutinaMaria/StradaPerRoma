@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1741979463997-1
+      author: lakut
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_bookprogress
+                  name: id
+                  type: UUID
+              - column:
+                  name: book_id
+                  type: UUID
+              - column:
+                  name: user_id
+                  type: UUID
+              - column:
+                  name: last_opened_page
+                  type: INT
+            tableName: book_progress
+  - changeSet:
+      id: 1741979463997-2
+      author: lakut
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_courseprogress
+                  name: id
+                  type: UUID
+              - column:
+                  name: course_id
+                  type: UUID
+              - column:
+                  name: user_id
+                  type: UUID
+            tableName: course_progress
+

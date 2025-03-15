@@ -1,0 +1,104 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1741961861873-1
+      author: lakut
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_book
+                  name: id
+                  type: UUID
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+              - column:
+                  name: author
+                  type: VARCHAR(255)
+              - column:
+                  name: cover_url
+                  type: VARCHAR(255)
+              - column:
+                  name: level
+                  type: VARCHAR(255)
+              - column:
+                  name: page_size
+                  type: INT
+            tableName: book
+  - changeSet:
+      id: 1741961861873-2
+      author: lakut
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: book_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: pages_page_id
+                  type: UUID
+            tableName: book_pages
+  - changeSet:
+      id: 1741961861873-3
+      author: lakut
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_pages
+                  name: page_id
+                  type: UUID
+              - column:
+                  name: book_id
+                  type: UUID
+              - column:
+                  name: page_number
+                  type: INT
+              - column:
+                  name: content
+                  type: VARCHAR(255)
+            tableName: pages
+  - changeSet:
+      id: 1741961861873-4
+      author: lakut
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: pages_page_id
+            constraintName: uc_book_pages_pages_pageid
+            tableName: book_pages
+  - changeSet:
+      id: 1741961861873-5
+      author: lakut
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: book_id
+            baseTableName: book_pages
+            constraintName: fk_boopag_on_book
+            referencedColumnNames: id
+            referencedTableName: book
+  - changeSet:
+      id: 1741961861873-6
+      author: lakut
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: pages_page_id
+            baseTableName: book_pages
+            constraintName: fk_boopag_on_page
+            referencedColumnNames: page_id
+            referencedTableName: pages
+

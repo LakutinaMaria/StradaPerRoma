@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/books")
@@ -31,38 +32,22 @@ public class BookController {
 
     @PostMapping
     public ResponseEntity<String> createBook(@RequestBody @Valid BookDTO book) {
-        String createdBookId = service.create(book);
-        return ResponseEntity.ok(createdBookId);
+        UUID createdBookId = service.create(book);
+        return ResponseEntity.ok(createdBookId.toString());
     }
 
-    @GetMapping("/{bookId}/{userId}")
+    @GetMapping("/{bookId}/{cursor}")
     @Operation(summary = "Get page by book id and user id")
-    public ResponseEntity<PageDTO> getPage(@PathVariable String bookId, @PathVariable String userId) {
-        System.out.println("Get page for " + bookId + "  " + userId);
-        return ResponseEntity.ok(service.getCurrentPage(bookId, userId));
+    public ResponseEntity<PageDTO> getPage(@PathVariable UUID bookId, @PathVariable Integer cursor) {
+        System.out.println("Get page for " + bookId + "  " + cursor);
+        return ResponseEntity.ok(service.getPage(bookId, cursor));
     }
-
-    @GetMapping("/{bookId}/{userId}/next")
-    @Operation(summary = "Get next page by book id and user id")
-    public ResponseEntity<PageDTO> getNextPage(@PathVariable String bookId, @PathVariable String userId) {
-        System.out.println("Get next page for " + bookId + "  " + userId);
-        return ResponseEntity.ok(service.getNextPage(bookId, userId));
-    }
-
-    @GetMapping("/{bookId}/{userId}/previous")
-    @Operation(summary = "Get previous page by book id and user id")
-    public ResponseEntity<PageDTO> getPreviousPage(@PathVariable String bookId, @PathVariable String userId) {
-        System.out.println("Get previous page for " + bookId + "  " + userId);
-        return ResponseEntity.ok(service.getPreviousPage(bookId, userId));
-    }
-
-
 
 
     @PostMapping("/page")
     public ResponseEntity<String> createPage(@RequestBody @Valid PageDTO pageDTO) {
-        String createdPageId = service.createPage(pageDTO);
-        return ResponseEntity.ok(createdPageId);
+        UUID createdPageId = service.createPage(pageDTO);
+        return ResponseEntity.ok(createdPageId.toString());
     }
 
 }
