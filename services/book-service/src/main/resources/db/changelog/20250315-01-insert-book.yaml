@@ -22,7 +22,7 @@ databaseChangeLog:
                   value: https://storage.yandexcloud.net/book-covers/cipollino.jpg
               - column:
                   name: level
-                  value: Beginner
+                  value: BEGINNER
               - column:
                   name: page_size
                   value: 25
