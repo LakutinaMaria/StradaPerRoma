@@ -5,3 +5,6 @@ databaseChangeLog:
   - include:
       file: /20250315-01-insert-book.yaml
       relativeToChangelogFile: true
+  - include:
+      file: /20250324-01-insert-pages.yaml
+      relativeToChangelogFile: true

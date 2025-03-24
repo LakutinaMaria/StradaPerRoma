@@ -8,6 +8,8 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
+kafka:
+  topic-name: book-topic
 
 server:
   port: 8091

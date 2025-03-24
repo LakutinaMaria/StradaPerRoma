@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1741961861873-1
+      id: 1742835293320-1
       author: lakut
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -30,7 +30,7 @@ databaseChangeLog:
                   type: INT
             tableName: book
   - changeSet:
-      id: 1741961861873-2
+      id: 1742835293320-2
       author: lakut
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -48,7 +48,7 @@ databaseChangeLog:
                   type: UUID
             tableName: book_pages
   - changeSet:
-      id: 1741961861873-3
+      id: 1742835293320-3
       author: lakut
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -61,17 +61,14 @@ databaseChangeLog:
                   name: page_id
                   type: UUID
               - column:
-                  name: book_id
-                  type: UUID
-              - column:
                   name: page_number
                   type: INT
               - column:
                   name: content
-                  type: VARCHAR(255)
+                  type: VARCHAR(5000)
             tableName: pages
   - changeSet:
-      id: 1741961861873-4
+      id: 1742835293320-4
       author: lakut
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -80,7 +77,7 @@ databaseChangeLog:
             constraintName: uc_book_pages_pages_pageid
             tableName: book_pages
   - changeSet:
-      id: 1741961861873-5
+      id: 1742835293320-5
       author: lakut
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -91,7 +88,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: book
   - changeSet:
-      id: 1741961861873-6
+      id: 1742835293320-6
       author: lakut
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:

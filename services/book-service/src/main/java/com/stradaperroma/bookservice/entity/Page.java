@@ -1,9 +1,6 @@
 package com.stradaperroma.bookservice.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 
@@ -18,18 +15,16 @@ public class Page {
     @GeneratedValue
     private UUID pageId;
 
-    private UUID bookId;
-
     private Integer pageNumber;
 
+    @Column(length = 5000)
     private String content;
 
     public Page() {}
 
     @Builder
-    public Page(UUID pageId, UUID bookId, Integer pageNumber, String content) {
+    public Page(UUID pageId, Integer pageNumber, String content) {
         this.pageId = pageId;
-        this.bookId = bookId;
         this.pageNumber = pageNumber;
         this.content = content;
     }

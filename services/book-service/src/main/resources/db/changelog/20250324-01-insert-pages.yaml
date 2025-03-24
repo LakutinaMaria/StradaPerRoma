@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-book-page-1
+      author: lakut
+      changes:
+        - insert:
+            tableName: pages
+            schemaName: public
+            columns:
+              - column:
+                  name: page_id
+                  value: 2a412ea2-ee43-40fd-81d1-fb0861ec4cb1
+                  type: UUID
+              - column:
+                  name: page_number
+                  value: 1
+                  type: int
+              - column:
+                  name: content
+                  value: 'C’era una volta una famiglia di cipolle. Erano piccoli, rotondi e con una buccia dorata. Un giorno, in questa famiglia nacque un piccolo cipollino.\n\nIl papà Cipolla era felice. La mamma Cipolla diceva:\n— Che bello! Il nostro Cipollino crescerà forte e coraggioso!\n\nCipollino era curioso. Guardava il mondo con grandi occhi e sorrideva sempre. Voleva esplorare tutto!\n\nMa nel paese c’era un grande problema. Il Principe Limone era il capo, e lui era molto severo. I poveri ortaggi dovevano pagare troppe tasse e lavorare tanto.\n\nCipollino voleva aiutare la sua famiglia e i suoi amici. Così, un giorno, disse:\n— Io troverò una soluzione!\n\nE così inizia la sua avventura...'
+        - insert:
+            tableName: book_pages
+            schemaName: public
+            columns:
+              - column:
+                  name: book_id
+                  value: 3e329b21-dd19-4ce9-892a-091c47762580
+              - column:
+                  name: pages_page_id
+                  value: 2a412ea2-ee43-40fd-81d1-fb0861ec4cb1
