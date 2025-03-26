@@ -9,4 +9,6 @@ public interface UserProgressService {
    BookProgressDTO createBookProgress(BookProgressDTO dto);
 
    BookProgressDTO getBookProgress(UUID userId, UUID bookId);
+
+   Integer getLastOpenPage(UUID userId, UUID bookId);
 }

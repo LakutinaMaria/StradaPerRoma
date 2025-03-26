@@ -9,6 +9,10 @@ spring:
           uri: lb:http://BOOK-SERVICE
           predicates:
             - Path=/api/v1/books/**
+        - id: user-progress
+          uri: lb:http://USER-PROGRESS
+          predicates:
+            - Path=/api/v1/user-progress/**
       globalcors:
         cors-configurations:
           '[/**]': # Applies to all paths
